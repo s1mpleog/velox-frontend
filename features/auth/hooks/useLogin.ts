@@ -1,4 +1,4 @@
-import { LoginRequest } from "@/types/types"
+import { LoginRequest } from "@/types"
 import { useMutation, UseMutationOptions } from "@tanstack/react-query"
 import { loginApi } from "../api"
 

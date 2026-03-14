@@ -4,6 +4,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
 import TanstackProvider from "./tanstack-provider"
+import { Toaster } from "@/components/ui/sonner"
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -31,6 +32,7 @@ export default function RootLayout({
       <body>
         {/*<ThemeProvider>*/}
         <TanstackProvider>{children}</TanstackProvider>
+        <Toaster />
         {/*</ThemeProvider>*/}
       </body>
     </html>

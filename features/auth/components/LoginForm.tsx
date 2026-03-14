@@ -2,19 +2,20 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useLogin } from "@/features/auth/hooks/useLogin"
-import { LoginRequest } from "@/types/types"
-import { useRouter } from "next/navigation"
+import { LoginRequest } from "@/types"
 import React, { useState } from "react"
+import { toast } from "sonner"
 
 export default function LoginForm() {
   const [data, setData] = useState<LoginRequest>({
     email: "",
   })
 
-  const router = useRouter()
-
   const { mutate, isPending } = useLogin({
-    onSuccess: () => router.push("/auth/authorize"),
+    onSuccess() {
+      setData({ email: "" })
+      toast("please check email we've sent you a magic link")
+    },
   })
 
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
