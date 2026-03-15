@@ -14,7 +14,7 @@ export default function Authorize({ token }: IAuthorize) {
   if (isPending) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-4">
-        <Spinner />
+        <Spinner className="h-15 w-15" />
         <h2 className="text-xl font-semibold">Verifying your magic link...</h2>
         <p className="text-sm text-muted-foreground">
           Hang tight! We&apos;re logging you in securely.

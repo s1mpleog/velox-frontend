@@ -1,29 +1,18 @@
-import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
-import Ping from "./ping"
+"use client"
+import useRefresh from "@/features/auth/hooks/useRefresh"
+import User from "@/features/user/components/user"
 
 export default function Page() {
+  useRefresh()
   return (
-    <div className="flex min-h-svh items-center justify-center p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance">
-            Project ready!
-          </h1>
-          <Separator className="my-4" />
-          <p className="leading-7 [&:not(:first-child)]:mt-6">
-            You may now add components and start building.
-          </p>
-          <p className="leading-7 [&:not(:first-child)]:mt-6">
-            We&apos;ve already added the button component for you.
-          </p>
-          <Button className="mt-2">Button</Button>
+    <main className="flex h-full w-full flex-col">
+      <nav className="flex h-20 w-full items-center justify-end bg-red-500 px-5">
+        <div className="end-full flex flex-row-reverse">
+          <User />
         </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
-      <Ping />
-    </div>
+      </nav>
+      <div>welcome to velox</div>
+      <div>this is a test text</div>
+    </main>
   )
 }

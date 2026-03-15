@@ -28,3 +28,27 @@ export const authorizeApi = async (token: string) => {
 
   return response.status
 }
+
+export const refreshApi = async () => {
+  const response = await fetch(`${backendUrl}/auth/refresh`, {
+    method: "GET",
+    credentials: "include",
+  })
+
+  if (!response.ok) {
+    throw new Error("failed to refresh token")
+  }
+
+  return response.status
+}
+
+export const logoutApi = async () => {
+  const response = await fetch(`${backendUrl}/auth/logout`, {
+    method: "POST",
+    credentials: "include",
+  })
+
+  if (!response.ok) {
+    throw new Error("failed to logout user")
+  }
+}
