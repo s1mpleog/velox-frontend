@@ -1,7 +1,7 @@
-import { useQuery, UseQueryOptions } from "@tanstack/react-query"
+import { useQuery } from "@tanstack/react-query"
 import { refreshApi } from "../api"
 
-export default function useRefresh(options?: UseQueryOptions) {
+export default function useRefresh() {
   useQuery({
     queryKey: ["refresh"],
     queryFn: () => refreshApi(),

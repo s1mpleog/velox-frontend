@@ -19,12 +19,9 @@ import {
   CreditCardIcon,
   LogOutIcon,
 } from "lucide-react"
-import useLogout from "@/features/auth/hooks/useLogout"
 
 export default function User() {
   const { data, isError, isLoading } = useUser()
-
-  const { mutate, isPending } = useLogout()
 
   if (isError) return <div>Oops failed to fetch user</div>
 
@@ -65,7 +62,7 @@ export default function User() {
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => mutate()} disabled={isPending}>
+        <DropdownMenuItem>
           <LogOutIcon />
           Sign Out
         </DropdownMenuItem>

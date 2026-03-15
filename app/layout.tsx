@@ -5,6 +5,9 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
 import TanstackProvider from "./tanstack-provider"
 import { Toaster } from "@/components/ui/sonner"
+import Navbar from "@/components/navbar"
+import { Separator } from "@/components/ui/separator"
+import Footer from "@/components/footer"
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -31,7 +34,15 @@ export default function RootLayout({
     >
       <body>
         {/*<ThemeProvider>*/}
-        <TanstackProvider>{children}</TanstackProvider>
+        <TanstackProvider>
+          <div className="flex h-screen flex-col">
+            <Navbar />
+            <Separator />
+            <main className="flex-1 overflow-auto">{children}</main>
+            <Separator />
+            <Footer />
+          </div>
+        </TanstackProvider>
         <Toaster />
         {/*</ThemeProvider>*/}
       </body>
